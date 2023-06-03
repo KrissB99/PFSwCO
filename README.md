@@ -4,7 +4,7 @@ Programowanie Full-Stack w Chmurze Obliczeniowej
 
 Zadanie 1 
 
-*** 1.1 
+>> 1.1 
 Proszę napisać program serwera (dowolny język programowania), który realizować będzie następującą funkcjonalność:
 
 - po uruchomieniu kontenera, serwer pozostawia w logach informację o dacie uruchomienia, imieniu i nazwisku autora serwera (imię i nazwisko studenta) oraz porcie
