@@ -10,8 +10,11 @@ TCP, na którym serwer nasłuchuje na zgłoszenia klienta.
 Strona została stworzona przy użyciu języka Python z biblioteką Flask. Do odcztania adresu IP użyto biblioteki socket, pobieranie dat dzięki bibliotece datetime.
 
 **linijka 13 w pliku run.py:** *socket.gethostbyname(socket.gethostname())* - pobranie adresu IP
+
 **linijka  25 w pliku run.py:** *datetime.datetime.now()* - pobranie terazniejszej daty i czasu
+
 **linijka 26 w pliku run.py:** *datetime.timezone(datetime.timedelta(hours=0))* - pobranie strefy czasowej
+
 **linijka 27 w pliku run.py:** *astimezone()* - obecna data i czas u klienta
 
 | Wyświetlenie strony poprzez wpisanie w przeglądarkę: *http://localhost:5000*
