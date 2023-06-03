@@ -1,41 +1,44 @@
+from flask import Flask, request
 import datetime
 import socket
-import json
-from flask import Flask, request
 
+# Dane autora serwera
+autor_imie = "Krystyna"
+autor_nazwisko = "Banaszewska"
+
+# Port, na którym serwer nasłuchuje
+port = 8000
+
+# Adres IP serwera
+adres_ip = socket.gethostbyname(socket.gethostname())
+
+# Tworzenie obiektu aplikacji Flask
 app = Flask(__name__)
 
-def get_client_ip() -> str:
-  "Pobieranie adresu IP klienta"
-    if 'X-Forwarded-For' in request.headers:
-        ip = request.headers['X-Forwarded-For']
-    else:
-        ip = request.remote_addr
-    return ip
-
-def get_client_datetime(ip) -> datetime:
-    "Zwracanie informacji o dacie i godzinie w strefie czasowej klienta"
-    client_datetime = datetime.datetime.now()
-    return client_datetime.strftime('%Y-%m-%d %H:%M:%S')
-
-@app.route('/')
+# Obsługa żądania GET
+@app.route("/")
 def index():
-  "Obsługa żądania klienta"
-    client_ip = get_client_ip()
-    client_datetime = get_client_datetime(client_ip)
-    response = {
-        'client_ip': client_ip,
-        'client_datetime': client_datetime
-    }
-    return json.dumps(response)
+    # Pobranie adresu IP klienta
+    adres_ip_klienta = request.remote_addr
 
-if __name__ == '__main__':
-    author = 'Krystyna Banaszewska'
-    port = 5000
+    # Pobranie daty i godziny w strefie czasowej klienta
+    teraz = datetime.datetime.now()
+    strefa_czasowa = datetime.timezone(datetime.timedelta(hours=0))
+    teraz_klienta = teraz.astimezone(strefa_czasowa)
 
-    start_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    print(f'Server started at {start_time}')
-    print(f'Author: {author}')
-    print(f'Listening on port: {port}')
+    # Tworzenie treści strony informacyjnej
+    content = f"<h1>Informacje o kliencie</h1>"
+    content += f'<p>Klient: {autor_imie} {autor_nazwisko}</p>'
+    content += f"<p>Adres IP klienta: {adres_ip_klienta}</p>"
+    content += f"<p>Data i godzina w strefie czasowej klienta: {teraz_klienta}</p>"
+
+    return content
+
+# Uruchomienie serwera
+if __name__ == "__main__":
+    # Logowanie informacji o uruchomieniu serwera
+    teraz = datetime.datetime.now()
+    log_info = f"Serwer uruchomiony przez {autor_imie} {autor_nazwisko} na porcie {port} (Adres IP: {adres_ip})"
+    print(log_info)
 
     app.run(host='0.0.0.0', port=port)
