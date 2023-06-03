@@ -32,46 +32,4 @@ Plik Dockerfile z komentarzami dostępy w repozytorium.
 (wieloetapowe budowanie obrazu, ewentualne wykorzystanie warstwy scratch, optymalizacja pod kątem funkcjonowania cache-a w procesie budowania, optymalizacja pod kątem zawartości i ilości
 warstw, healthcheck itd ). Dockerfile powinien również zawierać informację o autorze tego pliku (ponownie imię oraz nazwisko studenta).
 
-Oto przykład bardziej zaawansowanego pliku Dockerfile, który spełnia wymagania i uwzględnia optymalizację, takie jak wieloetapowe budowanie, minimalizacja warstw, wykorzystanie scratch, optymalizacja cache'a, użycie health check itd.:
-
-# Autor pliku Dockerfile
-MAINTAINER Krystyna Banaszewska
-
-# Etap 1: Budowanie aplikacji w języku Python
-FROM python:3.9-slim AS builder
-
-# Instalacja zależności systemowych
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    && rm -rf /var/lib/apt/lists/*
-
-WORKDIR /app
-
-# Skopiowanie tylko pliku requirements.txt w celu optymalizacji cache'a
-COPY requirements.txt .
-
-# Instalacja zależności Python
-RUN --mount=type=cache,target=/root/.cache \
-    pip install --no-cache-dir -r requirements.txt
-
-# Skopiowanie kodu aplikacji
-COPY server.py .
-
-# Etap 2: Budowanie minimalnego obrazu
-FROM scratch
-
-# Kopiowanie tylko niezbędnych plików i katalogów z etapu 1
-COPY --from=builder /usr/local/lib/python3.9/site-packages/ /usr/local/lib/python3.9/site-packages/
-COPY --from=builder /app/server.py /app/
-
-# Ustawienie zmiennej środowiskowej dla Flask
-ENV FLASK_APP=/app/server.py
-
-# Definiowanie health check
-HEALTHCHECK CMD wget --quiet --tries=1 --spider http://localhost:5000/ || exit 1
-
-# Otwarcie portu
-EXPOSE 8000
-
-# Uruchomienie serwera
-CMD ["python", "/app/server.py"]
+Oto przykład bardziej zaawansowanego pliku Dockerfile, który spełnia wymagania i uwzględnia optymalizację, takie jak wieloetapowe budowanie, minimalizacja warstw, wykorzystanie scratch, optymalizacja cache'a, użycie health check itd.
