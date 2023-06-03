@@ -10,6 +10,18 @@ Programowanie Full-Stack w Chmurze Obliczeniowej
 TCP, na którym serwer nasłuchuje na zgłoszenia klienta.
 >- na podstawie adresu IP klienta łączącego się z serwerem, w przeglądarce powinna zostać wyświetlona strona informująca o adresie IP klienta i na podstawie tego adresu IP, o dacie i godzinie w jego strefie czasowej.
 
+| Uruchomienie kontenera na podstawie zbudowanego obrazu: 
+
+>>> docker run -d -p 5000:5000 myserver
+
+| Wyświetlenie strony poprzez wpisanie w przeglądarkę: 
+
+*http://localhost:5000*
+
+| Polecenie zatrzymania kontenera: 
+
+>>> docker stop <container_id>
+
 * **1.2**
 >Opracować plik Dockerfile, który pozwoli na zbudowanie obrazu kontenera realizującego funkcjonalność opisaną w punkcie 1. Przy ocenie brane będzie sposób opracowania tego pliku (wieloetapowe budowanie obrazu, ewentualne wykorzystanie warstwy scratch, optymalizacja pod kątem funkcjonowania cache-a w procesie budowania, optymalizacja pod kątem zawartości i ilości warstw, healthcheck itd ). Dockerfile powinien również zawierać informację o autorze tego pliku (ponownie imię oraz nazwisko studenta).
 
