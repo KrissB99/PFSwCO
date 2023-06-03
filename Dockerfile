@@ -26,7 +26,7 @@ COPY --from=builder /app .
 ENV FLASK_APP=server.py
 
 # Otwarcie portu
-EXPOSE 8000
+EXPOSE 5000
 
 # Uruchomienie serwera
-CMD ["flask", "run", "--host=0.0.0.0", "--port=8000"]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]
