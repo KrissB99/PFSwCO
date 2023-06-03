@@ -26,10 +26,25 @@ Strona została stworzona przy użyciu języka Python z biblioteką Flask. Do od
 
 Plik Dockerfile z komentarzami dostępy w repozytorium.
 
+
+docker run -p 5000:5000 my_container:1 .
+
 * **1.3** 
 
->Opracować plik Dockerfile, który pozwoli na zbudowanie obrazu kontenera realizującego funkcjonalność opisaną w punkcie 1. Przy ocenie brane będzie sposób opracowania tego pliku
-(wieloetapowe budowanie obrazu, ewentualne wykorzystanie warstwy scratch, optymalizacja pod kątem funkcjonowania cache-a w procesie budowania, optymalizacja pod kątem zawartości i ilości
-warstw, healthcheck itd ). Dockerfile powinien również zawierać informację o autorze tego pliku (ponownie imię oraz nazwisko studenta).
+>Polecenia niezbędne do:
+    
+a. Zbudowanie opracowanego obrazu kontenera
 
-Oto przykład bardziej zaawansowanego pliku Dockerfile, który spełnia wymagania i uwzględnia optymalizację, takie jak wieloetapowe budowanie, minimalizacja warstw, wykorzystanie scratch, optymalizacja cache'a, użycie health check itd.
+    *docker build -t my_container:1 -f Dockerfile .*
+
+b. Uruchomienie kontenera na podstawie zbudowanego obrazu,
+
+    *docker run -p 8000:8000 my_container:1*
+
+c. Sposób uzyskania informacji, które wygenerował serwer w trakcie uruchamiana kontenera (patrz: punkt 1a),
+
+    *docker logs my_container*
+
+d. Ilość warstw zbudowanego obrazu.
+
+    *docker history my_container:1*
