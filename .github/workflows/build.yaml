@@ -34,4 +34,4 @@ jobs:
           file: Dockerfile
           push: true
           platforms: linux/amd64
-          tags: KrissB99/my_container:amd64
+          tags: krissb99/pfswco:amd64
