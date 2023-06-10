@@ -23,7 +23,7 @@ COPY --from=builder /root/.cache /root/.cache
 COPY --from=builder /app .
 
 # Ustawienie zmiennej środowiskowej dla Flask
-ENV FLASK_APP=server.py
+ENV FLASK_APP=run.py
 
 # Otwarcie portu
 EXPOSE 5000
