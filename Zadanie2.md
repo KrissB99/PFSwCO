@@ -8,13 +8,13 @@ Link do repozytorium GitHub zawierającego kod serwera oraz konfigurację Docker
 ## DockerHub
 
 Link do repozytorium DockerHub, w którym przechowywane są obrazy kontenera:
-[DockerHub](https://hub.docker.com/r/your-dockerhub-username/your-image-name)
+[DockerHub](https://hub.docker.com/r/krissb99/pfswco)
 
 ## Opis zawartości repozytorium
 
 Repozytorium zawiera następujące pliki:
 
-- `server.py`: Kod serwera w języku Python, który realizuje funkcjonalność opisaną w zadaniu.
+- `run.py`: Kod serwera w języku Python, który realizuje funkcjonalność opisaną w zadaniu.
 - `Dockerfile`: Plik Dockerfile do budowy obrazu kontenera z serwerem.
 - `.github/workflows/build.yaml`: Plik konfiguracyjny GitHub Actions, który buduje obrazy kontenera dla różnych architektur i publikuje je na DockerHub.
 - `zadanie2.md`: Plik sprawozdania, w którym opisane są informacje o repozytorium, linki do GitHub i DockerHub.
