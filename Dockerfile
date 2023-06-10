@@ -11,7 +11,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Kopiowanie kodu aplikacji
-COPY server.py .
+COPY run.py .
 
 # Etap 2: Konfiguracja obrazu kontenera
 FROM python:3.9-slim AS final
