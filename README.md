@@ -1,6 +1,6 @@
-# PFSwCO_Zadanie1
+# Programowanie Full-Stack w Chmurze Obliczeniowej
 
-Programowanie Full-Stack w Chmurze Obliczeniowej
+# Zadanie1
 
 **1.1** Proszę napisać program serwera (dowolny język programowania), który realizować będzie następującą funkcjonalność:
 - po uruchomieniu kontenera, serwer pozostawia w logach informację o dacie uruchomienia, imieniu i nazwisku autora serwera (imię i nazwisko studenta) oraz porcie
@@ -44,3 +44,8 @@ c. Sposób uzyskania informacji, które wygenerował serwer w trakcie uruchamian
 d. Ilość warstw zbudowanego obrazu.
 
     *docker history my_container:1*
+    
+# Zadanie 2.
+
+Dodano plik .github/workflows/build.yaml, który uruchomi łańcuch Github Actions przy każdym pushu do brancha main. Sprawdzi, czy zmiany w kodzie, Dockerfile i pliku GitHub Actions są zgodne, a następnie zbuduje i opublikuje obrazy kontenera dla architektur linux/arm64/v8 oraz linux/amd64. Obrazy zostaną umieszczone w Docker Hub pod nazwą i tagiem, które zostały podane w pliku konfiguracyjnym dla poszczególnych architektur.
+
