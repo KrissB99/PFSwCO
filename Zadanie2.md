@@ -3,7 +3,7 @@
 ## Repozytorium GitHub
 
 Link do repozytorium GitHub zawierającego kod serwera oraz konfigurację Dockerfile i GitHub Actions:
-[MojeRepozytorium](https://github.com/KrissB/PFSwCO_Zadanie1)
+[MojeRepozytorium](https://github.com/KrissB99/PFSwCO_Zadanie1)
 
 ## DockerHub
 
