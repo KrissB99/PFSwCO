@@ -16,7 +16,6 @@ FROM python:3.9-slim AS final
 WORKDIR /app
 
 # Kopiowanie zależności i skompilowanej aplikacji z etapu 1
-COPY --from=builder /root/.cache /root/.cache
 COPY --from=builder /app .
 
 # Ustawienie zmiennej środowiskowej dla Flask
