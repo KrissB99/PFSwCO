@@ -1,5 +1,5 @@
 # Autor pliku Dockerfile
-MAINTAINER Krystyna Banaszewska
+MAINTAINER krisb99
 
 # Etap 1: Budowanie aplikacji w języku Python
 FROM python:3.9-slim AS builder
